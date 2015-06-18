@@ -1,0 +1,34 @@
+${color black}${hr 12}${color #f5f5de}${goto 4}$hr${font :size=10}${color black}${goto 135}${hr 12}${color #f5f5de}${goto 140}Power $hr${font :size=8}
+${color grey}Status: \
+${if_existing /sys/class/power_supply/ADP0/online 1}\
+${color #0088FF}AC/DC Adapter connected
+${color grey}Charge: ${color #0088FF}$battery_percent% ${battery_bar 8}${color grey}
+$else\
+${color green}Running on Battery
+${color grey}Charge:\
+${if_match $battery_percent <= 10}\
+${color red} ${blink $battery_percent%} ${battery_bar 8}
+$else\
+${if_match $battery_percent <= 20}\
+${color orange}\
+$else\
+${if_match $battery_percent <= 30}\
+${color yellow}\
+$else\
+${color green}\
+$endif$endif\
+ $battery_percent% ${battery_bar 8}
+${color grey}Time left: \
+${if_match $battery_percent <= 10}\	
+${color red}\
+$else\
+${if_match $battery_percent <= 20}\
+${color orange}\
+$else\
+${if_match $battery_percent <= 30}\
+${color yellow}\
+$else\
+${color green}\
+$endif$endif$endif\
+$battery_time
+$endif$endif\

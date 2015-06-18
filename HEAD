@@ -1,0 +1,65 @@
+######
+#My basic settings. If you only want to display one or more of my snippets you want to put this in front of them and place it in your homefolder as .conkyrc.
+# if you want to include any of my snippets in your widget you don't need this. However this settings work for me.
+######
+
+alignment top_right
+
+update_interval 1.0
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+default_color green
+default_outline_color red
+default_shade_color blue
+
+border_width 1
+#border_margin 4
+stippled_borders 0
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+#gap_x 5
+#gap_y 60
+
+#xftfont Comic Sans none:size=12
+
+minimum_size 5 5
+double_buffer yes
+no_buffers no
+text_buffer_size 1024
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_class Conky
+own_window_type override #normal, desktop
+#own_window_hints undercorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+background no
+
+
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftfont Bitstream Vera Sans Mono:size=8
+font Bitstream Vera Sans Mono:size=8
+#on_bottom yes
+
+#minimum_size 280 5
+maximum_width 309
+
+#override_utf8_locale no
+
+######
+#End of configuration
+######
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT

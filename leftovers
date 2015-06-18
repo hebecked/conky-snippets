@@ -1,0 +1,38 @@
+
+${color #88ff00}$nodename   Linux-$kernel${alignr}${time %T}
+$hr
+${color black}${hr 12}${color #f5f5de}${goto 4}$hr${font :size=10}${color black}${goto 140}${hr 12}${color #f5f5de}${goto 145}CPU $hr${font :size=8}
+${color grey}Frequency: $color ${freq_g 1} GHz ${color grey} ${alignr}Temp.:$color ${hwmon 0 temp 1} °C
+#${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+${color grey}CPU1:$color ${cpu cpu1}% ${goto 80}${color grey}CPU2:$color ${cpu cpu2}% ${goto 160}${color grey}CPU3:$color ${cpu cpu3}% ${goto 240}${color grey}CPU4:$color ${cpu cpu4}%
+${color #000000}${cpugraph cpu1 25,70 7f8ed3 00ff00} ${color #000000}${cpugraph cpu2 25,70 7f8ed3 00ff00} ${color #000000}${cpugraph cpu3 25,70 7f8ed3 00ff00} ${color #000000}${cpugraph cpu4 25,70 7f8ed3 00ff00}
+$color
+${color grey}RAM:${alignc}$color $mem / $memmax ${alignr} $memperc%
+${color grey}Swap:${alignc}$color $swap / $swapmax ${alignr} $swapperc%
+${color grey}Root: $alignc$color${fs_used /} / ${fs_size /} $alignr${fs_used_perc /}%
+${color #000000}${diskiograph_read /dev/sda3 32,309 00ff00 00ff00 -l}${offset -309}${color #000000}${diskiograph_write /dev/sda3 32,309 ff0000 ff0000 -l}
+${if_match ${execi 30 df -h --exclude-type tmpfs -x devtmpfs | wc -l}>2}
+${color grey}${execi 30 df -h --exclude-type tmpfs -x devtmpfs | awk '(NR==1)'}
+$color${execi 30 df -h --exclude-type tmpfs -x devtmpfs | awk '!((NR==2)||(NR==1))'}$endif
+${color black}${hr 12}${color #f5f5de}${goto 4}$hr${font :size=10}${color black}${goto 130}${hr 12}${color #f5f5de}${goto 135}Network $hr${font :size=8}
+${color grey}Ip:$color ${addr wlp2s0} ${color grey}${goto 155}- ssid: $color${wireless_essid wlp2s0}${color grey}
+${color grey}Quallity: \
+${if_match ${wireless_link_qual wlp2s0} > 50}${color green}\
+${wireless_link_qual wlp2s0}% (good)$color\
+$else\
+${if_match ${wireless_link_qual wlp2s0} > 35}${color yellow}${wireless_link_qual_perc wlp2s0}% (ok)$color\
+$else\
+${if_match ${wireless_link_qual wlp2s0} > 20}${color orange}${wireless_link_qual_perc wlp2s0}% (weak)$color\
+$else\
+${color red}${wireless_link_qual_perc wlp2s0}% (bad)$color\
+$endif$endif$endif\
+${color grey}${goto 155}- Bitrate:$color ${wireless_bitrate wlp2s0}
+${color grey}Total Down:$color ${totaldown wlp2s0} ${color grey} ${goto 155}- Total Up:$color ${totalup wlp2s0}
+${color grey}Down:$color ${downspeed wlp2s0} ${color grey} ${goto 155}- Up:$color ${upspeed wlp2s0}
+${color #000000}${downspeedgraph wlp2s0 32,150 7f8ed3 00ff00} ${color #000000}${upspeedgraph wlp2s0 32,150 7f8ed3 00ff00}
+
+
+${if_match ${execi 60 pacman -Qu | wc -l}==0}${color #00ff00}No updates available
+$else${font Bitstream Vera Sans Mono:size=8:bold}${color #ee0000}${blink ${execi 60 /home/dustin/scripts/updates.sh}}${goto 15} updates available
+$endif${color grey}
+$font

@@ -1,0 +1,24 @@
+${color black}${hr 12}${color #f5f5de}${goto 4}$hr${font :size=10}${color black}${goto 130}${hr 12}${color #f5f5de}${goto 135}Weather $hr${font :size=8}
+#${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ EDDK temperature 30}
+${color white}
+${font ConkyWeather:size=50}E${font}${voffset -38}${font Comic Sans MS:size=28}${execi 120 conkyForecastWU --datatype=HT}${voffset -15}${font ConkyWeather:size=70} ${execpi 120 ~/.conky/weather_convert.sh}$font
+${color #f5f5dc}${font Comic Sans MS:size=16}${execpi 120 conkyForecastWU --datatype=DW --startday=1 --shortweekday} ${alignc}${execpi 120 conkyForecastWU --datatype=DW --startday=2 --shortweekday} ${alignr 40}${execpi 120 conkyForecastWU --datatype=DW --startday=3 --shortweekday}
+${color white}${font ConkyWeather:size=60}${execpi 120 ~/.conky/weather_convert.sh "-s 1"}${alignc -25}${font ConkyWeather:size=60}${execpi 120 ~/.conky/weather_convert.sh "-s 2"}${alignr 100}${font ConkyWeather:size=60}${execpi 120 ~/.conky/weather_convert.sh "-s 3"}$font
+${color #f5f5dc}${font DejaVu Sans:size=12}${execpi 120 conkyForecastWU --datatype=HT --startday=1 --hideunits --centeredwidth=3}/${execpi 120 conkyForecastWU --datatype=LT --startday=1 --hideunits --centeredwidth=3}${alignc -25}${execpi 120 conkyForecastWU --datatype=HT --startday=2 --hideunits --centeredwidth=3}/${execpi 120 conkyForecastWU --datatype=LT --startday=2 --hideunits --centeredwidth=3} ${alignr 20}${execpi 120 conkyForecastWU --datatype=HT --startday=3 --hideunits --centeredwidth=3}/${execpi 120 conkyForecastWU --datatype=LT --startday=3 --hideunits --centeredwidth=3}
+#${execpi 120 conkyForecastWU --datatype=HT --startday=4 --hideunits --centeredwidth=3}/${execpi 120 conkyForecastWU --datatype=LT --startday=4 --hideunits --centeredwidth=3}${font}
+${color white}${font DejaVu Sans:size=10}${voffset 4}Location:${color green}${alignr}${execi 120 conkyForecastWU --datatype=CN}
+${color white}Last Updated: ${color green}${alignr} ${execi 120 conkyForecastWU --hideunits --datatype=LU -m 0 }
+${color white}Feels Like:${color green}${alignr}${execi 120 conkyForecastWU --datatype=LT}
+${color white}Dew Point: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=DP}
+${color white}Current Condition:${color green}${alignr}${execi 120 conkyForecastWU --datatype=CT}
+${color white}Chance of Precip: ${color green}${alignr}${execi 120 conkyForecastWU  --startday=0 --datatype=PC}
+${color white}Humidity: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=HM}
+${color white}Wind: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=WS} - ${execi 120 conkyForecastWU --datatype=WD}
+${color white}Pressure: ${color green}${alignr}${execi 120 conkyForecastWU --hideunits --datatype=BR}
+${color white}Visibility: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=VI}
+${color white}Sunrise: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=SR}
+${color white}Sunset: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=SS}
+${color white}UV Index: ${color green}${alignr}${execi 120 conkyForecastWU --datatype=UI}
+#${color white}Warnings: ${alignr -10}${font Arial Black:size=8}${color orange}${execi 120 conkyForecastWU --datatype=AT | cut -d' ' -f1}
+${font Bitstream Vera Sans Mono:size=8}${color grey}${hr}
+

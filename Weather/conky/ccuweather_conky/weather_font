@@ -1,0 +1,55 @@
+#!/bin/bash
+# weather_font v1.0 (2013-05-15)
+# Created by George Sokianos                       
+
+case "$1" in
+0) echo "("  ;;
+1) echo "z"  ;;
+2) echo "("  ;;
+3) echo "z"  ;;
+4) echo "z"  ;;
+5) echo "e"  ;;
+6) echo "e"  ;;
+7) echo "o"  ;;
+8) echo "3"  ;;
+9) echo "3"  ;;
+10) echo "9"  ;;
+11) echo "9"  ;;
+12) echo "9"  ;;
+13) echo "o"  ;;
+14) echo "o"  ;;
+15) echo "o"  ;;
+16) echo "0"  ;;
+17) echo "e"  ;;
+18) echo "e"  ;;
+19) echo "s"  ;;
+20) echo "s"  ;;
+21) echo "s"  ;;
+22) echo "s"  ;;
+23) echo "l"  ;;
+24) echo "l"  ;;
+25) echo "\`"  ;;
+26) echo "\`"  ;;
+27) echo "2"  ;;
+28) echo "1"  ;;
+29) echo "2"  ;;
+30) echo "1"  ;;
+31) echo "/"  ;;
+32) echo "v"  ;;
+33) echo "/"  ;;
+34) echo "v"  ;;
+35) echo "e"  ;;
+36) echo "v"  ;;
+37) echo "z"  ;;
+38) echo "z"  ;;
+39) echo "z"  ;;
+40) echo "3"  ;;
+41) echo "o"  ;;
+42) echo "o"  ;;
+43) echo "o"  ;;
+44) echo "\`"  ;;
+45) echo "z"  ;;
+46) echo "o"  ;;
+47) echo "z"  ;;
+3200) echo "\`"  ;;
+esac
