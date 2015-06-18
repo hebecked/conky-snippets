@@ -1,0 +1,6 @@
+There are some conky snippets in the subfolders.
+If you do not have a runnign widget yet you might want to include my settings "HEAD".
+There is a Snipped for the current battery status. It might not work for all laptops. If it does not for yours you might replace the "$battery_percent" variable to something returning the same value for your divice.
+There is a snipped to display volume information. If moc(p) is running it expands to show you additional information on your tracks/streams. As the included moc commands did not work as desired I wrote a small python script for that. Just place it somewhere and change the path "/home/user/mocp_info.py" in the config file accordingly.
+There is a snipped to display the current weather and the following 3 days. You need to import the conkyweather.ttf font to display weather icons. Als the path "~/conky/weather_convert.sh" needs to be be linked to the path of weather_convert.sh on your system. It ensures that the weather information is converted in the right letters/icons
+I also included "leftovers" This is the part of my config that will most likely not work very well on other systems. But with a little effort it can be adapted for other systems too.

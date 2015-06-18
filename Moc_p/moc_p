@@ -3,5 +3,5 @@
 ######################################################
 ${color black}${hr 12}${color #f5f5de}${goto 4}$hr${font :size=10}${color black}${goto 135}${hr 12}${color #f5f5de}${goto 140}Music $hr${font :size=8}
 ${if_match ${execi 5 amixer get Master | egrep -o 'off' | wc -l} >= 1}${color #ff8800} (Mute)$endif${color #f5f5de}
-${color grey}${if_match ${execi 5 ps -ef | grep 'moc[p] -S'| wc -l} == 1}${execpi 5 /home/dustin/.conky/mocp_info.py}$endif
+${color grey}${if_match ${execi 5 ps -ef | grep 'moc[p] -S'| wc -l} == 1}${execpi 5 /home/user/mocp_info.py}$endif
 ${color grey}Volume: ${color green}${execi 5 amixer get Master | egrep -o '[0-9]+%' -m 1 | cut -d '%' -f 1}% ${execibar 5 amixer get Master | egrep -o '[0-9]+%' -m 1 | cut -d '%' -f 1}
